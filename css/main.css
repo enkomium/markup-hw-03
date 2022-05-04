@@ -37,7 +37,15 @@ body {
   margin: 0 auto;
   padding-left: 15px;
   padding-right: 15px;
-  outline: 2px solid rgb(245, 35, 3);
+  /* outline: 2px solid rgb(245, 35, 3); */
+}
+
+.black {
+  background-color: #2F303A;;
+}
+
+.light {
+  background-color: #F5F4FA;;
 }
 
 h1,
@@ -90,6 +98,14 @@ img {
   color: var(--accent-color);
 }
 
+.logo-accent-white {
+  color: var(--white-color);
+}
+
+.logo-accent-white:hover {
+  color:chartreuse
+}
+
 .feature-list {
   display: flex;
   list-style: none;
@@ -103,6 +119,36 @@ img {
 
 .shit + .shit {
   margin-left: 30px;
+}
+
+.shit::before {
+  content: "";
+  /* БЛОК!!! автоматически заполняет ширину своего родителя!!! */
+  /* Подстраиваем только высоту! */
+  display: block;
+  height: 120px;
+  background-color: #F5F4FA;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Что значит этт селектор? */
+/* shit у которого есть доп класс antena! (просто дополняем Бефором) */
+/* Можно писать без Shit просто что бы было понятно тебе */
+.shit.antena::before {
+  background-image: url("../images/global/antenna\ 1.svg");
+}
+
+.shit.clock::before {
+  background-image: url("../images/global/clock\ 1.svg");
+}
+
+.shit.diagram::before {
+  background-image: url("../images/global/diagram\ 1.svg");
+}
+
+.shit.astronaut::before {
+  background-image: url("../images/global/astronaut\ 1.svg");
 }
 
 /* SITE-NAV */
@@ -159,6 +205,7 @@ img {
 /* Адреса в футере */
 
 .contact {
+  display: flex;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -183,19 +230,64 @@ img {
   list-style: none;
   padding-left: 0;
   margin: 0 auto;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .contact-item {
-  margin-top: 9px;
-}
-
-.contact-link {
+  margin-bottom: 9px;
   color: var(--title-text-color);
   text-decoration: none;
 }
 
+.contact-item:last-child {
+  margin-bottom: 0;
+}
+
+.contact-text {
+  margin-bottom: 9px;
+  color: #FFFFFF;
+}
+
+/* ПСЕВДО-ЭЛЕМЕНТ КАРТИНКИ ДЛЯ ССЫЛКИ!!! */
+
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--title-text-color);
+  text-decoration: none;
+}
+
+.contact-lower {
+  color: var(--title-text-color);
+  text-decoration: none;
+}
+
+.contact-link::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.contact-link.mail::before {
+  background-image: url("../images/global/envelope\ \(hover\).svg");
+}
+
+.contact-link.tel::before {
+  background-image: url("../images/global/smartphone.svg");
+}
+
 .contact-link:hover,
 .contact-link:focus {
+  color: var(--accent-color);
+}
+
+.contact-lower:hover,
+.contact-lower:focus {
   color: var(--accent-color);
 }
 
@@ -210,15 +302,32 @@ img {
 /* Hero */
 
 .hero {
+  max-width: 1600px;
+  min-height: 600px;
+  margin-left: auto;
+  margin-right: auto;
+
   text-align: center;
-  padding-top: 200px;
-  padding-bottom: 280px;
+  
+
+  background-image: linear-gradient(
+    to right,
+     rgba(47, 48, 58, 0.4),
+      rgba(47, 48, 58, 0.4)
+      ), 
+      url("../images/global/Img-optim.jpg");
+  /* background-image: url("../images/global/Img-optim.jpg"); */
+  background-color: #757575;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .hero-title {
-  color: var(--title-text-color);
+  color: var(--white-color);
+  padding-top: 200px;
   margin-top: 0;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   font-style: normal;
   font-weight: 900;
   font-size: 44px;
@@ -247,10 +356,66 @@ img {
   margin-bottom: 94px;
 }
 
+/* //////___ПОДВАЛ___////// */
+
 .footer {
   padding-top: 60px;
   padding-bottom: 60px;
   margin-bottom: 30px;
+}
+
+.footer-social {
+  margin-left: 70px;
+  padding-top: 12px;
+}
+
+.social-icon {
+  margin-right: 10px;
+  width: 44px;
+  height: 44px;
+  background-color: #2196F3;
+  border-radius: 50%;
+  list-style: none;
+}
+
+.insta {
+  background-image: url("../images/social-icon/instagram\ 2.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.twitt {
+  background-image: url("../images/social-icon/twitter\ 1.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.faceb {
+  background-image: url("../images/social-icon/facebook\ 1.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.linke {
+  background-image: url("../images/social-icon/linkedin\ 1.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.social-list {
+  display: flex;
+  padding-left: 0;
+  margin: 0;
+}
+
+.social-text {
+  margin-bottom: 20px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.17;
+  letter-spacing: 0.03em;
+  color: #FFFFFF;
 }
 
 /* Заголовки */
@@ -266,6 +431,7 @@ img {
   line-height: 1.14;
   margin-top: 0;
   margin-bottom: 10px;
+  padding-top: 30px;
 }
 
 .lessons {
@@ -406,6 +572,12 @@ img {
 
 .team-list{
   display: flex;
+}
+
+.team-card {
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
+  0px 1px 1px rgba(0, 0, 0, 0.14),
+  0px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 .team-card + .team-card {
